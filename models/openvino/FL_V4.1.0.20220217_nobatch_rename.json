@@ -1,0 +1,48 @@
+{
+  "preprocess": [
+    {
+      "input_node": "input",
+      "color_format": "BGR",
+      "mean": [
+        128,
+        128,
+        128
+      ],
+      "scale": [
+        128,
+        128,
+        128
+      ],
+      "shape": [
+        1,
+        3,
+        96,
+        96
+      ],
+      "preprocess_type": "crop_by_box",
+      "crop_params": {
+        "scale_type": "scale_by_long_side_v2",
+        "crop_scales": [
+          0.6,
+          0.9,
+          0.75,
+          0.75
+        ]
+      },
+      "resize_params": {
+        "resize_type": "padding_resize_plus",
+        "padding_type": "pad_beyond_border",
+        "padding_val": [0, 0, 0]
+      }
+    }
+  ],
+  "postprocess": [
+    {
+      "output_node": [
+        "output"
+      ],
+      "postprocess_type": "landmarksv2",
+      "output_type": "vector"
+    }
+  ]
+}

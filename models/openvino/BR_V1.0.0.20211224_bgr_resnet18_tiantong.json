@@ -1,0 +1,42 @@
+{
+  "preprocess": [
+    {
+      "input_node": "input",
+      "color_format": "BGR",
+      "mean": [
+        124,
+        116,
+        104
+      ],
+      "scale": [
+        0.229,
+        0.224,
+        0.225
+      ],
+      "shape": [
+        1,
+        3,
+        384,
+        128
+      ],
+      "preprocess_type": "crop_by_box",
+      "crop_params": {
+        "scale_type": "scale_for_gzf"
+      },
+      "resize_params": {
+        "resize_type": "padding_resize_plus",
+        "padding_type": "middle",
+        "padding_val": [0, 0, 0]
+      }
+    }
+  ],
+  "postprocess": [
+    {
+      "output_node": [
+        "output"
+      ],
+      "postprocess_type": "normalize",
+      "output_type": "vector"
+    }
+  ]
+}

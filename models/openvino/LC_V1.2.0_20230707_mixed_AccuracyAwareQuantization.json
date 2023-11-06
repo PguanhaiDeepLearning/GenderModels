@@ -1,0 +1,45 @@
+{
+  "preprocess": [
+    {
+      "input_node": "input",
+      "color_format": "BGR",
+      "mean": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "shape": [
+        1,
+        3,
+        512,
+        512
+      ],
+      "preprocess_type": "crop_by_points",
+      "crop_params": {
+        "scale_type": "none"
+      },
+      "resize_params": {
+        "resize_type": "padding_resize_plus",
+        "padding_type": "middle",
+        "padding_val": [0, 0, 0]
+      }
+    }
+  ],
+  "postprocess": [
+    {
+      "output_node": [
+        "output"
+      ],
+      "postprocess_type": "classify_land_cover",
+      "output_type": "vector",
+      "cover_ths": {
+        "other": 0.1
+      }
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "preprocess": [
+    {
+      "input_node": "input",
+      "color_format": "RGB",
+      "mean": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1        
+      ],
+      "shape": [
+        1,
+        3,
+        64,
+        64
+      ],
+      "preprocess_type": "crop_by_box",
+      "crop_params": {
+        "scale_type": "scale_by_long_side_center_by_w",
+        "crop_scales": [
+          0.5,
+          0.7,
+          0.6,
+          0.6
+        ]
+      },
+      "resize_params": {
+        "resize_type": "padding_resize_plus",
+        "padding_type": "middle",
+        "padding_val": [0, 0, 0]
+      }
+    }
+  ],
+  "postprocess": [
+    {
+      "output_node": [
+        "output"
+      ],
+      "postprocess_type": "classify",
+      "output_type": "vector"
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "preprocess": [
+    {
+      "input_node": "input",
+      "color_format": "BGR",
+      "mean": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "shape": [
+        1,
+        3,
+        480,
+        512
+      ],
+      "preprocess_type": "crop_by_box",
+      "resize_params": {
+        "resize_type": "padding_resize_plus",
+        "padding_type": "middle",
+        "padding_val": [0, 0, 0]
+      }
+    }
+  ],
+  "postprocess": [
+    {
+      "output_node": [
+        "551",
+        "552",
+        "553"
+      ],
+      "output_type": "box",
+      "postprocess_type": "detection_yolov5Plus",
+      "postprocess_params": {
+        "anchors": [
+         10,13, 16, 30, 33, 23, 30, 61, 62, 45, 59, 119, 116, 90, 156, 198, 373, 326
+        ],
+        "num_class": 1,
+        "num_anchors": 3,
+        "nms_threshold": 0.45,
+        "confidence_threshold": 0.1,
+	    "landmarks_num": 4,
+        "strides": [8, 16, 32]
+      }
+    }
+  ]
+}
